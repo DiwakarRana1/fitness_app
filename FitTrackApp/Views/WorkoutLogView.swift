@@ -9,7 +9,7 @@ struct WorkoutLogView: View {
         NavigationStack {
             List {
                 ForEach(sessions) { session in
-                    NavigationLink(destination: Text("Session Detail for \(session.routineName)")) {
+                    NavigationLink(destination: WorkoutSessionDetailView(session: session)) {
                         VStack(alignment: .leading) {
                             Text(session.routineName)
                                 .font(.headline)
