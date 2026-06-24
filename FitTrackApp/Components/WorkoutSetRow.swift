@@ -10,14 +10,18 @@ struct WorkoutSetRow: View {
                 .frame(width: 50, alignment: .leading)
             
             TextField("Weight", value: $exerciseSet.weight, format: .number)
+                #if os(iOS)
                 .keyboardType(.decimalPad)
+                #endif
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 70)
             
             Text("kg")
             
             TextField("Reps", value: $exerciseSet.reps, format: .number)
+                #if os(iOS)
                 .keyboardType(.numberPad)
+                #endif
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 60)
             
