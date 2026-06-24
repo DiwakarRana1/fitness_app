@@ -22,7 +22,7 @@ struct WorkoutLogView: View {
             }
             .navigationTitle("Workouts")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(action: addSession) {
                         Label("Add Session", systemImage: "plus")
                     }
