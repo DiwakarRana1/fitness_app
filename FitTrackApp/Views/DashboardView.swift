@@ -22,7 +22,9 @@ struct DashboardView: View {
                 }
             }
             .navigationTitle("FitTrack Dashboard")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
         }
     }
 }
