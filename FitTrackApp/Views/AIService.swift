@@ -34,7 +34,7 @@ final class AIService {
         }
     }
     
-    private func callGeminiAPI(current: Data, previous: Data, cWeight: Double, pWeight: Double, key: String) async throws -> String {
+    private func callGeminiAPI(current: Data, previous: Data, currentWeight: Double, previousWeight: Double, key: String) async throws -> String {
         let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(key)")!
         
         var request = URLRequest(url: url)
@@ -44,7 +44,7 @@ final class AIService {
         let promptText = """
         You are an elite fitness coach. Compare these two progress pictures and analyze the progress.
         Previous weight was: \(previousWeight) kg.
-        Current weight is: \(cWeight) kg.
+        Current weight is: \(currentWeight) kg.
         
         Provide a detailed report in Markdown format:
         1. Visual changes in muscle definition, posture, and body fat.
@@ -96,7 +96,7 @@ final class AIService {
         throw AIError.invalidResponse
     }
     
-    private func callOpenAIAPI(current: Data, previous: Data, cWeight: Double, pWeight: Double, key: String) async throws -> String {
+    private func callOpenAIAPI(current: Data, previous: Data, currentWeight: Double, previousWeight: Double, key: String) async throws -> String {
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
         
         var request = URLRequest(url: url)
@@ -107,7 +107,7 @@ final class AIService {
         let promptText = """
         You are an elite fitness coach. Compare these two progress pictures and analyze the progress.
         Previous weight was: \(previousWeight) kg.
-        Current weight is: \(cWeight) kg.
+        Current weight is: \(currentWeight) kg.
         
         Provide a detailed report in Markdown format:
         1. Visual changes in muscle definition, posture, and body fat.
