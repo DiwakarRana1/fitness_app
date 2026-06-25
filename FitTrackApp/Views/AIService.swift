@@ -25,12 +25,12 @@ final class AIService {
             guard let apiKey = KeychainHelper.shared.read(forKey: "gemini_api_key"), !apiKey.isEmpty else {
                 throw AIError.missingAPIKey
             }
-            return try await callGeminiAPI(current: currentPhoto, previous: previousPhoto, cWeight: currentWeight, pWeight: previousWeight, key: apiKey)
+            return try await callGeminiAPI(current: currentPhoto, previous: previousPhoto, currentWeight: currentWeight, previousWeight: previousWeight, key: apiKey)
         } else {
             guard let apiKey = KeychainHelper.shared.read(forKey: "openai_api_key"), !apiKey.isEmpty else {
                 throw AIError.missingAPIKey
             }
-            return try await callOpenAIAPI(current: currentPhoto, previous: previousPhoto, cWeight: currentWeight, pWeight: previousWeight, key: apiKey)
+            return try await callOpenAIAPI(current: currentPhoto, previous: previousPhoto, currentWeight: currentWeight, previousWeight: previousWeight, key: apiKey)
         }
     }
     
