@@ -19,6 +19,10 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Physique", systemImage: "camera.macro")
                 }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.fill")
+                }
         }
     }
 }
