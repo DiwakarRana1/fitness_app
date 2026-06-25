@@ -9,6 +9,7 @@ struct FitTrackApp: App {
         }
         .modelContainer(for: [
             DailyMacroLog.self,
+            MealLog.self,
             WorkoutSession.self,
             ExerciseLog.self,
             ExerciseSet.self,
